@@ -72,6 +72,10 @@ jobs:
           context: .
           file: ./Dockerfile.cfg
           target: runtime
+          # Multi-arch — dev workstations may be ARM (Apple Silicon),
+          # prod runs amd64 droplets. Building both keeps the same tag
+          # pullable everywhere.
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

@@ -11,9 +11,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: install node v22
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v5
       with:
         node-version: 22
+        check-latest: true
     - name: npm i
       run: npm i
     - name: tsc
